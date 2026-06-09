@@ -1,0 +1,20 @@
+name: CI Pipeline
+on:
+push:
+branches: ["main"]
+jobs:
+build:
+runs-on: ubuntu-latest
+steps:
+- name: Клонирование репозитория
+uses: actions/checkout@v4
+- name: Установка Python
+uses: actions/setup-python@v5
+with:
+python-version: "3.9"
+- name: Показ файлов (отладка)
+run: ls -R
+- name: Установка зависимостей
+run: pip install -r ./requirements.txt
+- name: Проверка синтаксиса
+run: python -m py_compile app.py
