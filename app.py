@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
-
+print("API started")
 tasks = []
 
 class Handler(BaseHTTPRequestHandler):
